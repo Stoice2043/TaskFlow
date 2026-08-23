@@ -5,6 +5,8 @@ import com.taskflow.auth.entity.Role;
 import com.taskflow.auth.entity.User;
 import com.taskflow.auth.repository.UserRepository;
 import com.taskflow.auth.service.AuthService;
+import com.taskflow.auth.util.JwtUtil;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,7 @@ public class AuthServiceImpl implements AuthService {
 
 	private final PasswordEncoder passwordEncoder;
 
-	private final JwtService jwtService;
+	private final JwtUtil jwtUtil;
 
     @Override
     public String register(RegisterRequestDTO request) {
@@ -58,6 +60,6 @@ public class AuthServiceImpl implements AuthService {
             throw new RuntimeException("Invalid email or password");
         }
 
-        return jwtService.generateToken(user.getEmail());
+        return jwtUtil.generateToken(user.getEmail());
     }
 }
