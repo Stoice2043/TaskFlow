@@ -48,6 +48,20 @@ public class GlobalExceptionHandler {
                 .badRequest()
                 .body(errors);
     }
+    @ExceptionHandler(ProjectNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleProjectNotFound(
+            ProjectNotFoundException ex) {
+
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(error);
+    }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneralException(
@@ -63,4 +77,38 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(error);
     }
+    
+    @ExceptionHandler(ProjectHasTasksException.class)
+    public ResponseEntity<ErrorResponse> handleProjectHasTasks(
+            ProjectHasTasksException ex) {
+
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.CONFLICT.value(),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(error);
+    }
+    
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<ErrorResponse> handleGeneralException(
+//            Exception ex) {
+//
+//        ex.printStackTrace();
+//
+//        ErrorResponse error = new ErrorResponse(
+//                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+//                ex.getMessage(),
+//                LocalDateTime.now()
+//        );
+//
+//        return ResponseEntity
+//                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+//                .body(error);
+//    }
+    
+    
 }

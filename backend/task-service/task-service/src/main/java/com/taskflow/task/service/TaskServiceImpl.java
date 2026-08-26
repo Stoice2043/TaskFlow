@@ -3,7 +3,10 @@ package com.taskflow.task.service;
 import com.taskflow.task.dto.TaskRequestDTO;
 import com.taskflow.task.dto.TaskResponseDTO;
 import com.taskflow.task.entity.Task;
+import com.taskflow.task.exception.ProjectNotFoundException;
+import com.taskflow.task.exception.ProjectNotFoundException;
 import com.taskflow.task.exception.TaskNotFoundException;
+import com.taskflow.task.repository.ProjectRepository;
 import com.taskflow.task.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,17 +19,24 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
+    private final ProjectRepository projectRepository;
 
     @Override
     public TaskResponseDTO createTask(
             TaskRequestDTO request,
             String userEmail) {
 
+        projectRepository
+                .findByIdAndOwnerEmail(request.getProjectId(), userEmail)
+                .orElseThrow(() ->
+                        new ProjectNotFoundException("Project not found"));
+
         Task task = Task.builder()
                 .title(request.getTitle())
                 .description(request.getDescription())
                 .status(request.getStatus())
                 .priority(request.getPriority())
+                .projectId(request.getProjectId())   // IMPORTANT
                 .userEmail(userEmail)
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
@@ -93,11 +103,29 @@ public class TaskServiceImpl implements TaskService {
 
         taskRepository.delete(task);
     }
+    
+    @Override
+    public List<TaskResponseDTO> getTasksByProject(
+            Long projectId,
+            String userEmail) {
+
+        projectRepository
+                .findByIdAndOwnerEmail(projectId, userEmail)
+                .orElseThrow(() ->
+                        new ProjectNotFoundException("Project not found"));
+
+        return taskRepository
+                .findByProjectIdAndUserEmail(projectId, userEmail)
+                .stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
 
     private TaskResponseDTO mapToResponse(Task task) {
 
         return TaskResponseDTO.builder()
                 .id(task.getId())
+                .projectId(task.getProjectId())
                 .title(task.getTitle())
                 .description(task.getDescription())
                 .status(task.getStatus())

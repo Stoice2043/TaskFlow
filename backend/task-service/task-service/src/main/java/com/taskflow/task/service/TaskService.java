@@ -20,4 +20,6 @@ public interface TaskService {
     );
 
     void deleteTask(Long id, String userEmail);
+    
+    List<TaskResponseDTO> getTasksByProject(Long projectId, String userEmail);
 }

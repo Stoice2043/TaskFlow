@@ -26,4 +26,6 @@ public class TaskResponseDTO {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+    
+    private Long projectId;
 }

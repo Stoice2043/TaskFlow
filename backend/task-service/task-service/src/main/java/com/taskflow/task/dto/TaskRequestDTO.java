@@ -4,7 +4,6 @@ import com.taskflow.task.entity.TaskPriority;
 import com.taskflow.task.entity.TaskStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,16 +11,17 @@ import lombok.Setter;
 @Setter
 public class TaskRequestDTO {
 
-    @NotBlank(message = "Title is required")
-    @Size(max = 100, message = "Title must not exceed 100 characters")
+    @NotBlank
     private String title;
 
-    @Size(max = 1000, message = "Description must not exceed 1000 characters")
     private String description;
 
-    @NotNull(message = "Status is required")
+    @NotNull
     private TaskStatus status;
 
-    @NotNull(message = "Priority is required")
+    @NotNull
     private TaskPriority priority;
+
+    @NotNull
+    private Long projectId;
 }

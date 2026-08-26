@@ -6,37 +6,26 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "projects")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Task {
+public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String name;
 
     @Column(length = 1000)
     private String description;
 
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TaskStatus status;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private TaskPriority priority;
-
-    @Column(nullable = false)
-    private Long projectId;
-    
-    @Column(nullable = false)
-    private String userEmail;
+    private String ownerEmail;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
