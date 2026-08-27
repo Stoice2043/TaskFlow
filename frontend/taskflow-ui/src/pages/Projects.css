@@ -1,0 +1,438 @@
+.projects-page {
+    min-height: 100vh;
+    display: flex;
+    background: #f8fafc;
+}
+
+.projects-main {
+    margin-left: 245px;
+    width: calc(100% - 245px);
+    padding: 45px;
+}
+
+/* HEADER */
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 35px;
+}
+
+.projects-small-heading {
+    color: #6366f1;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    margin-bottom: 6px;
+}
+
+.projects-header h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.projects-header > div > p:last-child {
+    color: #6b7280;
+    margin-top: 8px;
+}
+
+.new-project-button {
+    border: none;
+    border-radius: 8px;
+
+    padding: 12px 18px;
+
+    background: #4f46e5;
+    color: white;
+
+    font-weight: 600;
+}
+
+.new-project-button:hover {
+    background: #4338ca;
+}
+
+/* CREATE FORM */
+
+.project-form-card {
+    max-width: 650px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    padding: 28px;
+
+    margin-bottom: 30px;
+}
+
+.project-form-header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.project-form-header h3 {
+    margin: 0 0 5px;
+    color: #111827;
+}
+
+.project-form-header p {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.close-form-button {
+    border: none;
+    background: transparent;
+
+    font-size: 25px;
+    color: #6b7280;
+}
+
+.project-input {
+    height: 50px;
+}
+
+.project-input,
+.project-description {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.project-input:focus,
+.project-description:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.project-form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.cancel-project-button {
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    border-radius: 8px;
+
+    padding: 10px 17px;
+}
+
+.create-project-button {
+    border: none;
+
+    background: #4f46e5;
+    color: white;
+
+    border-radius: 8px;
+
+    padding: 10px 17px;
+
+    font-weight: 600;
+}
+
+/* PROJECT GRID */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.project-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    padding: 23px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.project-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.project-card-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #eef2ff;
+    color: #4f46e5;
+
+    font-weight: 700;
+}
+
+.project-card-top > span {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.project-card h3 {
+    color: #111827;
+
+    font-size: 17px;
+    font-weight: 650;
+
+    margin-bottom: 9px;
+}
+
+.project-card > p {
+    color: #6b7280;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    min-height: 42px;
+}
+
+.project-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 1px solid #f1f5f9;
+
+    margin-top: 20px;
+    padding-top: 16px;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* EMPTY */
+
+.projects-empty {
+    background: white;
+
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+
+    padding: 70px 30px;
+
+    text-align: center;
+}
+
+.empty-project-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 13px;
+
+    background: #eef2ff;
+    color: #4f46e5;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.projects-empty h3 {
+    color: #111827;
+}
+
+.projects-empty p {
+    color: #6b7280;
+}
+
+.projects-empty button {
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #4f46e5;
+    color: white;
+
+    padding: 11px 18px;
+
+    font-weight: 600;
+}
+
+.projects-loading {
+    color: #6b7280;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .projects-main {
+        margin-left: 0;
+        width: 100%;
+        padding: 25px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-header {
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+.project-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.project-edit-button,
+.project-delete-button {
+    border-radius: 7px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.project-edit-button {
+    border: 1px solid #c7d2fe;
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+.project-delete-button {
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.project-modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+    padding: 20px;
+}
+
+.project-modal {
+    width: 100%;
+    max-width: 580px;
+
+    background: white;
+
+    border-radius: 14px;
+    padding: 28px;
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.25);
+}
+
+.project-modal-header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.project-modal-header p {
+    color: #6366f1;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+
+    margin-bottom: 5px;
+}
+
+.project-modal-header h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 22px;
+}
+
+.project-modal-header button {
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    color: #6b7280;
+}
+
+.project-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.project-modal-cancel {
+    border: 1px solid #d1d5db;
+    background: white;
+
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.project-modal-save {
+    border: none;
+    background: #4f46e5;
+    color: white;
+
+    padding: 10px 17px;
+    border-radius: 8px;
+
+    font-weight: 600;
+}

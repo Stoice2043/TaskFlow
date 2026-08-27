@@ -17,5 +17,20 @@ spring:
               predicates:
                 - Path=/api/tasks/**,/api/projects/**
 
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins:
+                  - "http://localhost:5173"
+                allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                  - OPTIONS
+                allowedHeaders:
+                  - "*"
+                allowCredentials: true
+
 server:
   port: 8080

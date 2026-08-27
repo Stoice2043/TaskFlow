@@ -1,0 +1,149 @@
+.tasks-page {
+    min-height: 100vh;
+    display: flex;
+    background: #f8fafc;
+}
+
+.tasks-main {
+    margin-left: 245px;
+    width: calc(100% - 245px);
+    padding: 45px;
+}
+
+.tasks-header {
+    margin-bottom: 30px;
+}
+
+.tasks-small-heading {
+    color: #6366f1;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    margin-bottom: 6px;
+}
+
+.tasks-header h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.tasks-header p {
+    color: #6b7280;
+    margin-top: 8px;
+}
+
+.task-filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.task-search,
+.task-filters .form-select {
+    height: 48px;
+}
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.task-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    padding: 22px;
+}
+
+.task-card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.task-card h3 {
+    margin: 0 0 7px;
+
+    color: #111827;
+
+    font-size: 16px;
+}
+
+.task-card p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+.task-card-badges {
+    display: flex;
+    gap: 8px;
+}
+
+.task-card-footer {
+    margin-top: 18px;
+    padding-top: 14px;
+
+    border-top: 1px solid #f1f5f9;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+.tasks-empty {
+    background: white;
+
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+
+    padding: 60px 25px;
+
+    text-align: center;
+}
+
+.tasks-empty h3 {
+    color: #111827;
+}
+
+.tasks-empty p {
+    color: #6b7280;
+}
+
+.tasks-loading {
+    color: #6b7280;
+}
+
+@media (max-width: 800px) {
+
+    .task-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .task-card-main {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .tasks-main {
+        margin-left: 0;
+        width: 100%;
+        padding: 25px;
+    }
+}
