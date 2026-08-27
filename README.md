@@ -1,3 +1,4 @@
+"# TaskFlow" 
 # TaskFlow
 
 TaskFlow is a full-stack task and project management application built using a microservices-based architecture.
@@ -125,40 +126,33 @@ The My Tasks page supports filtering based on:
 
 TaskFlow follows a microservices-based architecture.
 
-```text
-                    ┌───────────────────────┐
-                    │     React Frontend    │
-                    │   localhost:5173      │
-                    └───────────┬───────────┘
-                                │
-                                │ HTTP / REST
-                                ▼
-                    ┌───────────────────────┐
-                    │      API Gateway      │
-                    │    localhost:8080     │
-                    └───────────┬───────────┘
-                                │
-                  ┌─────────────┴─────────────┐
-                  │                           │
-                  ▼                           ▼
-       ┌────────────────────┐      ┌────────────────────┐
-       │    Auth Service    │      │    Task Service    │
-       │                    │      │                    │
-       │ Register           │      │ Projects           │
-       │ Login              │      │ Tasks              │
-       │ JWT Generation     │      │ JWT Verification   │
-       └─────────┬──────────┘      └──────────┬─────────┘
-                 │                            │
-                 ▼                            ▼
-       ┌────────────────────┐      ┌────────────────────┐
-       │   Auth Database    │      │    Task Database   │
-       │       MySQL        │      │       MySQL        │
-       └────────────────────┘      └────────────────────┘
-```
+## Architecture Diagram
 
-The frontend communicates only with the API Gateway.
+![TaskFlow System Architecture](docs/taskflow-architecture.png)
 
-The API Gateway routes authentication requests to the Auth Service and project/task requests to the Task Service.
+The React frontend communicates with the backend through the API Gateway.
+
+The API Gateway acts as the single entry point and routes authentication requests to the Auth Service and project/task requests to the Task Service.
+
+The Auth Service is responsible for user registration, login, password verification, and JWT generation.
+
+The Task Service handles project and task management, JWT validation, and user ownership checks.
+
+Each service maintains its own MySQL database.
+
+## Architecture Diagram
+
+![TaskFlow System Architecture](docs/taskflow-architecture.png)
+
+The React frontend communicates with the backend through the API Gateway.
+
+The API Gateway acts as the single entry point and routes authentication requests to the Auth Service and project/task requests to the Task Service.
+
+The Auth Service is responsible for user registration, login, password verification, and JWT generation.
+
+The Task Service handles project and task management, JWT validation, and user ownership checks.
+
+Each service maintains its own MySQL database.
 
 ---
 
