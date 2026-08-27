@@ -140,20 +140,6 @@ The Task Service handles project and task management, JWT validation, and user o
 
 Each service maintains its own MySQL database.
 
-## Architecture Diagram
-
-![TaskFlow System Architecture](docs/taskflow-architecture.png)
-
-The React frontend communicates with the backend through the API Gateway.
-
-The API Gateway acts as the single entry point and routes authentication requests to the Auth Service and project/task requests to the Task Service.
-
-The Auth Service is responsible for user registration, login, password verification, and JWT generation.
-
-The Task Service handles project and task management, JWT validation, and user ownership checks.
-
-Each service maintains its own MySQL database.
-
 ---
 
 # Authentication Flow
